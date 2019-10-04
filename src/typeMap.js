@@ -140,7 +140,7 @@ const jsonSchemaTypeToGraphQL = (title: string, jsonSchema: JSONSchemaType, sche
     }
     throw new Error("Don't know how to handle schema " + JSON.stringify(jsonSchema) + ' without type and schema');
   })();
-  return jsonSchema.required ? graphql.GraphQLNonNull(baseType) : baseType;
+  return jsonSchema.required === true ? graphql.GraphQLNonNull(baseType) : baseType;
 };
 
 const getPrimitiveTypes = (jsonSchema: JSONSchemaType): GraphQLScalarType => {
